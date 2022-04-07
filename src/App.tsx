@@ -3,7 +3,7 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="flex justify-center m-4">
+    <div className="flex flex-col items-center m-4">
       <FetchAgents />
     </div>
   );
