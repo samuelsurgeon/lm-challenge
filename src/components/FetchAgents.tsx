@@ -17,6 +17,7 @@ const FetchAgents = () => {
   const [agents, setAgents] = useState<Agent[] | null>(null);
   const [status, setStatus] = useState<String | null>(null);
 
+  // split agents into two separate arrays based on value of status
   const groupByProperty = (data: Agent[], status: string) => {
     return data.reduce((memo: any, x: any) => {
       if (!memo[x[status]]) {
@@ -27,12 +28,14 @@ const FetchAgents = () => {
     }, {});
   };
 
+  // basic sort by first_name
   const sortData = (data: Agent[]): Agent[] => {
     return data.sort((a: Agent, b: Agent) =>
       a.first_name > b.first_name ? 1 : b.first_name > a.first_name ? -1 : 0
     );
   };
 
+  // get data on mount, organise data, and assign to agents state
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(url);
@@ -46,6 +49,7 @@ const FetchAgents = () => {
     fetchData();
   }, []);
 
+  // depend on agents and status (controlled by online and offline buttons below) and update filterAgents state
   useEffect(() => {
     setFilteredAgents(
       agents?.flatMap((agent) => {
