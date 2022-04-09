@@ -20,9 +20,12 @@ const FetchAgents = () => {
   // split agents into two separate arrays based on value of status
   const groupByProperty = (data: Agent[], status: string) => {
     return data.reduce((memo: any, curr: any) => {
+      // check if we have encountered value of prop status before
       if (!memo[curr[status]]) {
+        // if we haven't create a new array in memo obj
         memo[curr[status]] = [];
       }
+      // add current obj value to corresponding memo array
       memo[curr[status]].push(curr);
       return memo;
     }, {});
