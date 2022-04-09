@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Agent } from "./FetchAgents";
 
 const AgentTile = ({
@@ -8,8 +7,6 @@ const AgentTile = ({
   profile,
   status,
 }: Agent) => {
-  useEffect(() => {}, []);
-
   return (
     <div className="p-4 mr-4 mb-4 w-fit rounded-lg border font-sans bg-white">
       <img className="rounded-lg" src={avatar} alt="" />
