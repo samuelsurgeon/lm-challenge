@@ -19,11 +19,11 @@ const FetchAgents = () => {
 
   // split agents into two separate arrays based on value of status
   const groupByProperty = (data: Agent[], status: string) => {
-    return data.reduce((memo: any, x: any) => {
-      if (!memo[x[status]]) {
-        memo[x[status]] = [];
+    return data.reduce((memo: any, curr: any) => {
+      if (!memo[curr[status]]) {
+        memo[curr[status]] = [];
       }
-      memo[x[status]].push(x);
+      memo[curr[status]].push(curr);
       return memo;
     }, {});
   };
