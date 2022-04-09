@@ -41,9 +41,7 @@ const FetchAgents = () => {
       const res = await fetch(url);
       const data = await res.json();
       const { online, offline } = groupByProperty(data.agents, "status");
-      const sortedOnline = sortData(online);
-      const sortedOffline = sortData(offline);
-      setAgents([...sortedOnline, ...sortedOffline]);
+      setAgents([...sortData(online), ...sortData(offline)]);
     };
 
     fetchData();
